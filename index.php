@@ -33,8 +33,7 @@
 
                             foreach($html4->find('table tr td a') as $key4 => $option4) {  //centres
                                     $option4->innertext = preg_replace(array('/\s{2,}/', '/[\t\n]/'), ' ', $option4->innertext);
-                                    $option4->innertext = str_replace("/","/",$option4->innertext);
-                                    //$option4->innertext = stripslashes($option4->innertext);
+                                    $option4->innertext = stripslashes($option4->innertext);
                                     array_push($states[$option1->innertext][$option2->innertext][$option3->innertext], $option4->innertext);
 
                             }
@@ -49,8 +48,7 @@
 
     header('Content-Type: application/json');
     $myJSON = json_encode($states, JSON_PRETTY_PRINT);
-     echo $myJSON;
-    echo '<br>';
+     //echo $myJSON;
 
 
     $myfile = fopen("election_centres.json", "w") or die("Unable to open file!");
